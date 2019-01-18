@@ -24,15 +24,15 @@ import java.util.Scanner;
 public class collatzSequence {
     public static void main(String[] args){
 
-        int num;
-//        String playAgain = "y";
+        int num = -1;
         String playAgain = " ";
         Scanner keyboard = new Scanner(System.in);
 
         do {
             // get user input
             System.out.println("Please enter a number: ");
-            num = keyboard.nextInt();
+            num = keyboard.nextInt();   // nextInt() reads the number but doesn't consume the line separator
+            keyboard.nextLine();        // consumes "\n"
 
             // if number is even, divide by 2
             // if number is odd, multiply by 3 and add 1
@@ -46,10 +46,8 @@ public class collatzSequence {
             }
 
             // ask if user wants to continue
-
             System.out.println("Would you like to play again with another number?: Y or N");
-//            playAgain = " ";
-            playAgain = keyboard.next();
+            playAgain = keyboard.nextLine();
 
         } while(playAgain.equalsIgnoreCase("y"));
 
